@@ -46,7 +46,7 @@ export default function Register() {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <Label>Name</Label>
+              <Label>fullname</Label>
               <Input
                 name="name"
                 placeholder="Enter your name"
