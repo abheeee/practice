@@ -1,18 +1,16 @@
 import { useState } from "react";
-
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
+  CardDescription,
 } from "@/components/ui/card";
-
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 
-function App() {
+export default function Register() {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -32,38 +30,32 @@ function App() {
       return;
     }
 
-    console.log("Register Data:", form);
+    console.log(form);
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 px-4">
-      <Card className="w-full max-w-md rounded-2xl shadow-xl">
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl text-center">
-            Create Account
-          </CardTitle>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+      <Card className="w-full max-w-md rounded-2xl shadow-lg">
+        <CardHeader>
+          <CardTitle className="text-2xl text-center">Create Account</CardTitle>
           <CardDescription className="text-center">
-            Register to get started
+            Register to continue
           </CardDescription>
         </CardHeader>
 
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
-
-            {/* Name */}
-            <div className="space-y-1">
+            <div>
               <Label>Name</Label>
               <Input
                 name="name"
                 placeholder="Enter your name"
                 value={form.name}
                 onChange={handleChange}
-                required
               />
             </div>
 
-            {/* Email */}
-            <div className="space-y-1">
+            <div>
               <Label>Email</Label>
               <Input
                 type="email"
@@ -71,12 +63,10 @@ function App() {
                 placeholder="Enter your email"
                 value={form.email}
                 onChange={handleChange}
-                required
               />
             </div>
 
-            {/* Password */}
-            <div className="space-y-1">
+            <div>
               <Label>Password</Label>
               <Input
                 type="password"
@@ -84,41 +74,26 @@ function App() {
                 placeholder="Enter password"
                 value={form.password}
                 onChange={handleChange}
-                required
               />
             </div>
 
-            {/* Confirm Password */}
-            <div className="space-y-1">
+            <div>
               <Label>Confirm Password</Label>
               <Input
                 type="password"
                 name="confirmPassword"
-                placeholder="Re-enter password"
+                placeholder="Confirm password"
                 value={form.confirmPassword}
                 onChange={handleChange}
-                required
               />
             </div>
 
-            {/* Button */}
             <Button type="submit" className="w-full">
               Register
             </Button>
-
-            {/* Footer */}
-            <p className="text-sm text-center text-gray-500">
-              Already have an account?{" "}
-              <span className="text-blue-600 cursor-pointer hover:underline">
-                Login
-              </span>
-            </p>
-
           </form>
         </CardContent>
       </Card>
     </div>
   );
 }
-
-export default App;
